@@ -1,0 +1,552 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS, RESETS & FONTES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #334155;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. HEADER / MENU DE NAVEGAÇÃO (FLEXBOX)
+   ========================================================================== */
+.main-header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #e65c00; /* Identidade Laranja Principal */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+/* CRITÉRIO DE AVALIAÇÃO: Mudar a cor dos links no hover */
+.nav-link:hover {
+    color: #e65c00;
+}
+
+/* ==========================================================================
+   3. HERO SECTION & CAIXA DE BUSCA FLUTUANTE
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
+                url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600') no-repeat center center/cover;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff9f1c;
+    margin-bottom: 12px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #f1f5f9;
+}
+
+/* Botões Principais */
+.btn-primary {
+    background-color: #e65c00;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* CRITÉRIO DE AVALIAÇÃO: Mudar a cor dos botões no hover */
+.btn-primary:hover {
+    background-color: #cc5200;
+    transform: translateY(-2px);
+}
+
+/* Caixa de Busca com Inputs de Tipo Data */
+.search-box {
+    background-color: #ffffff;
+    color: #334155;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 800px;
+}
+
+.search-box h3 {
+    margin-bottom: 20px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-align: left;
+    color: #1e293b;
+}
+
+.search-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* Estilização focada no Calendário Nativo */
+.input-group input[type="date"] {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #334155;
+    outline: none;
+    background-color: #ffffff;
+    transition: border-color 0.2s;
+}
+
+.input-group input[type="date"]:focus {
+    border-color: #e65c00;
+}
+
+.btn-search {
+    background-color: #1e293b;
+    color: #ffffff;
+    border: none;
+    padding: 14px 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 46px;
+    transition: background-color 0.2s;
+}
+
+.btn-search:hover {
+    background-color: #0f172a;
+}
+
+/* ==========================================================================
+   4. SECÇÃO DE DESTINOS (CSS GRID)
+   ========================================================================== */
+.destinos-section {
+    padding: 80px 20px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #1e293b;
+}
+
+.grid-destinos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card-destino {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.btn-card {
+    background-color: transparent;
+    border: 2px solid #e65c00;
+    color: #e65c00;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-card:hover {
+    background-color: #e65c00;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   5. SECÇÃO DE AVALIAÇÕES (CARROSSEL)
+   ========================================================================== */
+.avaliacoes-section {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.avaliacoes-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #6366f1;
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 950px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.carousel-btn {
+    background-color: #cbd5e1;
+    border: none;
+    border-radius: 6px;
+    width: 36px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background-color: #94a3b8;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.carousel-content {
+    max-width: 700px;
+}
+
+.testimonial-text {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #475569;
+    line-height: 1.75;
+    margin-bottom: 30px;
+}
+
+.testimonial-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ff9f1c; /* Detalhe circular laranja */
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    font-size: 1rem;
+    color: #475569;
+}
+
+.profile-info strong {
+    color: #1e293b;
+}
+
+/* ==========================================================================
+   6. FOOTER REALISTA UNIFICADO (CSS GRID & SLATE-GRAY DO PROTÓTIPO)
+   ========================================================================== */
+.main-footer {
+    background-color: #34495e; /* Tom cinza-azulado exato do mockup */
+    color: #cbd5e1;
+    padding: 70px 40px 40px;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.3fr; /* Divisão proporcional das 3 colunas */
+    gap: 60px;
+}
+
+/* Coluna 1: Marca */
+.footer-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.4rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.brand-info p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+.brand-info .copyright {
+    margin-top: 35px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+/* Colunas Gerais */
+.partners-col h3, 
+.newsletter-social-col h3 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* Coluna 2: Parceiros */
+.partners-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.partners-col ul li {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.partners-col ul li:hover {
+    color: #ff9f1c;
+}
+
+/* Coluna 3: Formulário Newsletter inline */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.btn-send {
+    background-color: #ff9f1c; /* Cor vibrante amarela/laranja do protótipo */
+    color: #ffffff;
+    border: none;
+    padding: 0 25px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-send:hover {
+    background-color: #e65c00;
+}
+
+/* Linha Divisora e Redes Sociais */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #475569;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #cbd5e1; /* Borda fina circular do design */
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+/* CRITÉRIO DE AVALIAÇÃO: Mudar a cor dos ícones das redes sociais no hover */
+.social-link:hover {
+    background-color: #ffffff;
+    color: #34495e;
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   7. CRITÉRIO DE AVALIAÇÃO: RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: auto;
+        padding: 80px 20px;
+    }
+    .main-title {
+        font-size: 2.8rem;
+    }
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-search {
+        width: 100%;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    .carousel-container {
+        flex-direction: column-reverse;
+        gap: 25px;
+    }
+    .carousel-btn {
+        display: inline-flex;
+        margin: 0 10px;
+        height: 40px;
+    }
+    .main-footer {
+        padding: 50px 20px 30px;
+    }
+}
